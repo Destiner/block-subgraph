@@ -11,7 +11,9 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy destiner/blocks-ethereum subgraph.yaml --node https://api.thegraph.com/deploy/",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "lint:prettier": "prettier -c \"src/**/*.{json,ts}\"",
+    "lint:eslint": "eslint \"src/**/*.ts\""
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.28.0",
