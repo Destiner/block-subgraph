@@ -10,6 +10,4 @@ function handleBlock(block: ethereum.Block): void {
   entity.save();
 }
 
-export {
-  handleBlock,
-};
+export { handleBlock };
