@@ -2,4 +2,6 @@ type Block @entity {
   id: ID!
   hash: Bytes!
   timestamp: BigInt!
+  gasLimit: BigInt!
+  gasUsed: BigInt!
 }
