@@ -1,0 +1,24 @@
+specVersion: 0.0.4
+description: Ethereum Blocks
+repository: https://github.com/destiner/block-subgraph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Wrapper Ethereum
+    network: mainnet
+    source:
+      address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+      abi: WETH
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Block
+      abis:
+        - name: WETH
+          file: src/abi/weth.json
+      blockHandlers:
+        - handler: handleBlock
+      file: src/mappings/block.ts
