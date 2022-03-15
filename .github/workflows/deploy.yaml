@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Clean install
+      run: npm ci
+
+    - name: Codegen
+      run: npm run codegen
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy
+      run: npm run deploy
+
+    - uses: gtaschuk/graph-deploy@v0.1.5
+      with:
+        graph_access_token: ${{secrets.THEGRAPH_TOKEN}}
+        graph_subgraph_name: "blocks-ethereum"
+        graph_account: "destiner"
+        graph_config_file: "subgraph.yaml"
