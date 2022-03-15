@@ -27,7 +27,10 @@ jobs:
 
     - uses: gtaschuk/graph-deploy@v0.1.5
       with:
-        graph_access_token: ${{secrets.THEGRAPH_TOKEN}}
+        graph_access_token: ${{secrets.GRAPH_ACCESS_TOKEN}}
         graph_subgraph_name: "blocks-ethereum"
         graph_account: "destiner"
         graph_config_file: "subgraph.yaml"
+
+env:
+  CI: true
