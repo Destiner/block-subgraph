@@ -10,7 +10,8 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy destiner/blocks-ethereum subgraph.yaml --node https://api.thegraph.com/deploy/"
+    "deploy": "graph deploy destiner/blocks-ethereum subgraph.yaml --node https://api.thegraph.com/deploy/",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.28.0",
