@@ -5,23 +5,17 @@ on:
     branches: main
 
 jobs:
-  run:
-    name: Run
+  deploy-ethereum:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
     - name: Clean install
       run: npm ci
-
     - name: Codegen
       run: npm run codegen
-
     - name: Build
       run: npm run build
-
     - uses: gtaschuk/graph-deploy@v0.1.5
       with:
         graph_access_token: ${{secrets.GRAPH_ACCESS_TOKEN}}
